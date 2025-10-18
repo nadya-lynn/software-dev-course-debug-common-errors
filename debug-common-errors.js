@@ -24,7 +24,7 @@ Think about which debugging methods you found most useful and how you might appl
 // Description:
 // This program is intended to display a simple prompt in the console but fails to run.
 
-console.log("Welcome to the bootcamp
+console.log("Welcome to the bootcamp");
 
 // What’s Wrong?
 
@@ -35,8 +35,12 @@ console.log("Welcome to the bootcamp
 
 let numbers = [2, 4, "eight"];
 for (let i = 0; i < numbers.length; i++) {
+  if (typeof numbers[i] === "number") {
   let doubled = numbers[i] * 2;
   console.log(doubled);
+} else {
+  console.log(`"${numbers[i]}" is not a number`);
+ }
 }
 
 // What’s Wrong?
@@ -51,12 +55,13 @@ function isPrime(num) {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return true;  // Supposed to indicate num is NOT prime
+      return false;  // Supposed to indicate num is NOT prime
     }
   }
-  return false; // Supposed to indicate num IS prime
+  return true; // Supposed to indicate num IS prime
 }
 
 console.log(isPrime(7)); // Expected true but gets false
+console.log(isPrime(10)); // Retur false
 
 // What’s Wrong?
